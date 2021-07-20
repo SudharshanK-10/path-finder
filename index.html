@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+     <title>Path finder</title>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.11/p5.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.11/addons/p5.dom.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.11/addons/p5.sound.min.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Otomanopee One' rel='stylesheet'>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script defer src="sketch.js"></script>
+  </head>
+  <body>
+       <div class="content">
+          <div class="container">
+          <div class="header">VISUALIZE THE PATHS!</div>
+          <div class="tabs">
+          <div class="left-tab">
+               <div id="canvasForHTML"></div>
+          </div>
+          <div class="right-tab">
+               <select name="opt" id="algo">
+                    <option selected="selected">--Select an Algorithm--</option>
+                    <option id="djikstra" value="djikstra">Djikstra</option>
+                    <option id="a_star" value="a*">A*</option>
+               </select><br>
+               <div class = "check">
+                    <div class="w">
+                         <input type="checkbox" id="walls" name="walls" value="selected">
+                         <label for="walls">Walls</label>
+                    </div><br>
+                    <div class="s">
+                         <input type="checkbox" id="start" name="walls" value="selected">
+                         <label for="walls">Start</label>
+                    </div><br>
+                    <div class="e">
+                         <input type="checkbox" id="end" name="walls" value="selected">
+                         <label for="walls">End</label>
+                    </div><br>
+                    <div class="s">
+                         <input type="range" id="slide" min="4" max="25" value="5"><br>
+                         <label for="slide">Grid size</label>
+                    </div>
+          </div><br>
+               <button id="findpath" onclick="run()">Find Path</button>
+          </div>
+          <div class="rules">
+               <p>RULES</p>
+               <ul>
+                    <li>Check the required box and click</li>
+                    on the cell to mark it's type<br>
+                    <li>Grey - Start and End cell</li>
+                    <li>Black - Walls</li>
+                    <li>Green - Good Neighbours</li>
+                    <li>Red - Bad Neighbours</li>
+                    <li>Blue - Optimal Path</li>
+                    <li>To unmark a cell, just click on it </li>
+                    with the boxes unchecked
+               </ul>
+          </div>
+     </div>
+     </div>
+     </div>
+     <a href="https://github.com/SudharshanK-10">By Sudharshan K</a>
+  </body>
+</html>
