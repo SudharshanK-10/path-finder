@@ -23,6 +23,37 @@ function removeFromArray(arr,elt){
      }
 }
 
+function mouseDragged() {
+     var wallchecked = select("#walls").checked();
+     var opti,optj;
+     //get the mouse pointer position
+     opti = 400 - int(mouseX);
+     optj = 400 - int(mouseY);
+
+     //scale it down to the grid size
+     opti = int(opti / w )%rows;
+     optj = int(optj / w )%rows;
+     opti = rows-1-opti;
+     optj = rows-1-optj;
+
+     if(wallchecked){
+          if(mouseX > 400 || mouseY > 400 || mouseX < 0 || mouseY < 0) {
+               return;
+          }
+          grid[opti][optj].wall = 1;
+          grid[opti][optj].show(color(0,0,0));
+          return;
+     }
+     else {
+          if(mouseX > 400 || mouseY > 400 || mouseX < 0 || mouseY < 0) {
+               return;
+          }
+          grid[opti][optj].wall = 0;
+          grid[opti][optj].show(color(255));
+          return;
+     }
+}
+
 function mousePressed(){
      var wallchecked = select("#walls").checked();
      var startchecked = select("#start").checked();
@@ -49,6 +80,10 @@ function mousePressed(){
           if(mouseX > 400 || mouseY > 400 || mouseX < 0 || mouseY < 0) {
                return;
           }
+          removeFromArray(openset,grid[opti][optj]);
+          sx = opti+1;
+          sy = optj;
+          start = grid[sx][sy];
           grid[opti][optj].wall = 1;
           grid[opti][optj].show(color(0,0,0));
           return;
